@@ -9,4 +9,7 @@
 
 ## Usage
 
-    cf mups SERVICE_NAME CREDENTIAL_NAME CREDENTIAL_VALUE
+    cf mups <service_name> <credential-name> <credential-value>
+
+    cf mups creds secret '"shh"'
+    cf mups creds secret '{"super": "secret"}'

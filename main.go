@@ -82,7 +82,13 @@ func (p *MupsPlugin) Run(cliConnection plugin.CliConnection, args []string) {
 
         serviceName := args[1]
         credName := args[2]
-        credValue := args[3]
+
+        var credValue interface{}
+        err := json.Unmarshal([]byte(args[3]), &credValue)
+        if err != nil {
+                fmt.Println(err)
+                os.Exit(1)
+        }
 
         creds, err := getServiceCreds(cliConnection, serviceName)
         if err != nil {
